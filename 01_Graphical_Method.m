@@ -10,15 +10,13 @@ C = [2 1];
 % Phase 2:Plot lines on the graph
 
 x = 0:1:max(B);
-y_values = zeros(size(A, 1),length(x));
+y = zeros(size(A, 1),length(x));
 figure;
 hold on;
 
 for i = 1:size(A, 1)
-    y = (B(i)-A(i,1).*x)./A(i,2);
-    y = max(0, y);
-    y_values(i,:) = y;
-    plot(x,y);
+    y(i,:) = max(0,(B(i)-A(i,1).*x)./A(i,2));
+    plot(x,y(i);
 end
 xlabel('Value of X');
 ylabel('Value of Y');
@@ -44,9 +42,9 @@ for i=1:size(A,1)
     for j=i+1:size(A,1)
         A2=A(j,:);
         B2=B(j);
-        A4=[A1; A2];
-        B4=[B1; B2];
-        X=A4\B4;
+        A3=[A1; A2];
+        B3=[B1; B2];
+        X=A3\B3;
         intersection_pts=[intersection_pts; X'];
     end
 end
